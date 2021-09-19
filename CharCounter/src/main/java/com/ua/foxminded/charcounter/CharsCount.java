@@ -1,18 +1,18 @@
 package com.ua.foxminded.charcounter;
 
-import java.util.HashMap;
+import java.util.Map;
 
-public class CounterChars {
+public class CharsCount {
   
-  private final HashMap<Character, Integer> uniqueCharsString;
+  private final Map<Character, Integer> uniqueCharsString;
   private final char[] charsString;
 
-  CounterChars(HashMap<Character, Integer> counterCharsString, char[] charsString) {
+  CharsCount(Map<Character, Integer> counterCharsString, char[] charsString) {
     this.uniqueCharsString = counterCharsString;
     this.charsString = charsString;
   }
 
-  public final HashMap<Character, Integer> getUniqueCharsString() {
+  public final Map<Character, Integer> getUniqueCharsString() {
     return uniqueCharsString;
   }
 

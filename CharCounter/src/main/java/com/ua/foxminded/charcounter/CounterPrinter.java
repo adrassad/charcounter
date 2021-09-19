@@ -1,15 +1,15 @@
 package com.ua.foxminded.charcounter;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class CounterPrinter {
 
-  public void print(CounterChars counterChars) {
+  public static void print(CharsCount counterChars) {
     System.out.print(formatCounterChars(counterChars));
   }
 
-  String formatCounterChars(CounterChars counterChars) {
-    HashMap<Character, Integer> mapChars = counterChars.getUniqueCharsString();
+  static String formatCounterChars(CharsCount counterChars) {
+    Map<Character, Integer> mapChars = counterChars.getUniqueCharsString();
     char[] charsString = counterChars.getCharsString();
     StringBuilder result = new StringBuilder();
     for (char charString : charsString) {
@@ -20,5 +20,5 @@ public class CounterPrinter {
     }
     return result.toString();
   }
-  
+
 }

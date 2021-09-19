@@ -1,11 +1,13 @@
 package com.ua.foxminded.charcounter;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class CharCounter {
-  CounterChars generateCounterChars(String sentence) {
+
+  private CharsCount calculateCountChars(String sentence) {
     char[] charsSentence = sentence.toCharArray();
-    HashMap<Character, Integer> mapChars = new HashMap<Character, Integer>();
+    Map<Character, Integer> mapChars = new HashMap<Character, Integer>();
     for (char charSentence : charsSentence) {
       int countChars = 0;
       if (mapChars.containsKey(charSentence)) {
@@ -14,7 +16,19 @@ public class CharCounter {
       countChars++;
       mapChars.put(charSentence, countChars);
     }
-    CounterChars counterChars = new CounterChars(mapChars, charsSentence);
+    CharsCount counterChars = new CharsCount(mapChars, charsSentence);
+    CharCounterCaсhe.setCacheCounter(sentence, counterChars);
     return counterChars;
   }
+
+  CharsCount getCharsCount(String sentence) {
+    CharsCount counterChars = CharCounterCaсhe.getCacheCounter(sentence);
+    if (counterChars == null) {
+      counterChars = calculateCountChars(sentence);
+    } else {
+      counterChars = counterChars;
+    }
+    return counterChars;
+  }
+
 }

@@ -5,12 +5,17 @@ import java.util.Scanner;
 public class App {
 
   public static void main(String[] args) {
-    Scanner in = new Scanner(System.in);
-    String sentence = in.nextLine();
-    CharCounter counterChar = new CharCounter();
-    CounterChars counterChars = counterChar.generateCounterChars(sentence);
-    CounterPrinter printer = new CounterPrinter();
-    printer.print(counterChars);
+    while (true) {
+      System.out.print("Сount characters in a string? (no - break)\n");
+      Scanner in = new Scanner(System.in);
+      String sentence = in.nextLine();
+      if (sentence.equals("no")) {
+        break;
+      }
+      CharCounter counterChar = new CharCounter();
+      CharsCount counterChars = counterChar.getCharsCount(sentence);
+      CounterPrinter.print(counterChars);
+    }
   }
 
 }
